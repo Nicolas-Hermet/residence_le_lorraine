@@ -538,10 +538,8 @@ export default function Inspiration() {
                 </a>
               </div>
               {/* CTA */}
-              <div className="absolute bottom-0 left-0 right-0 h-[352px] bg-linear-to-t from-white to-transparent">
-                <div className="flex h-full items-end justify-center">
-                  <Link className="btn text-white bg-blue-500 hover:bg-blue-600 shadow-xs mb-6" href="/signup">Join The Community</Link>
-                </div>
+              <div className="mt-12 flex h-full items-end justify-center">
+                <Link className="btn text-white bg-blue-500 hover:bg-blue-600 shadow-xs mb-6" href="/signup">Réservez votre logement</Link>
               </div>
             </div>
           </div>
