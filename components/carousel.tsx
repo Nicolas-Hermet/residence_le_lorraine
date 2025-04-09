@@ -36,6 +36,31 @@ Swiper.use([Navigation])
 
 export default function Carousel() {
 
+  const airbnbIds = [
+    '1128954032272199922',
+    '1128034739884045700',
+    '1117187304862067461',
+    '1128893781005340623',
+    '1128946634495632074',
+    '1128948162167751129',
+    '1128949784936289877',
+    '1128952851649436757',
+    '1128951559873515470',
+  ]
+
+
+  const getAirbnbEmbedHtml = (id: string, text: string = '') => `
+    <div style="position: relative; cursor: pointer;" onclick="window.open('https://www.airbnb.fr/rooms/${id}?guests=1&adults=1&s=66', '_blank');">
+      <div class="airbnb-embed-frame" data-id="${id}" data-view="home" data-hide-price="true" style="width: 450px; height: 300px; margin: auto; pointer-events: none;">
+        <a href="https://www.airbnb.fr/rooms/${id}?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget">Voir sur Airbnb</a>
+        <a href="https://www.airbnb.fr/rooms/${id}?guests=1&amp;adults=1&amp;s=66&amp;source=embed_widget" rel="nofollow">
+          ${text}
+        </a>
+        <script async src="https://www.airbnb.fr/embeddable/airbnb_jssdk"></script>
+      </div>
+    </div>
+  `
+
   useEffect(() => {
     const carousel = new Swiper('.carousel', {
       breakpoints: {
@@ -43,10 +68,10 @@ export default function Carousel() {
           slidesPerView: 1,
         },
         640: {
-          slidesPerView: 2,
+          slidesPerView: 1,
         },
         1024: {
-          slidesPerView: 4,
+          slidesPerView: 2,
         },
       },
       grabCursor: true,
@@ -68,149 +93,21 @@ export default function Carousel() {
         <div className="py-12 md:py-20">
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 font-cabinet-grotesk text-gray-100">Trending collections</h2>
+            <h2 className="h2 font-cabinet-grotesk text-gray-100">Réservez directement sur Airbnb.</h2>
           </div>
           {/* Carousel built with Swiper.js [https://swiperjs.com/] */}
           {/* * Custom styles in src/css/additional-styles/theme.scss */}
           <div className="carousel swiper-container max-w-sm mx-auto sm:max-w-none ">
             <div className="swiper-wrapper">
               {/* Carousel items */}
-              <div className="swiper-slide h-auto flex flex-col">
-                {/* Image */}
-                <Image className="w-full aspect-7/4 object-cover" src={Carousel01} width={259} height={148} alt="Carousel 01" />
-                {/* White box */}
-                <div className="grow bg-white px-4 pb-6">
-                  {/* Avatars */}
-                  <div className="flex items-start -space-x-3 -ml-0.5 mb-4 -mt-5">
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar01} width={36} height={36} alt="Avatar 01" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar02} width={36} height={36} alt="Avatar 02" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar03} width={36} height={36} alt="Avatar 03" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar04} width={36} height={36} alt="Avatar 04" />
-                  </div>
-                  {/* Title */}
-                  <a className="inline-block font-cabinet-grotesk font-bold text-xl decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">Digital Art</a>
-                  <div className="text-sm text-gray-500 italic">34 collections</div>
+              {airbnbIds.map((airbnb) => (
+                <div key={airbnb} className="swiper-slide h-auto flex flex-col">
+                  <div
+                    className="bg-white p-4 min-w-[450px] z-1"
+                    dangerouslySetInnerHTML={{ __html: getAirbnbEmbedHtml(airbnb) }}
+                  />
                 </div>
-              </div>
-              <div className="swiper-slide h-auto flex flex-col">
-                {/* Image */}
-                <Image className="w-full aspect-7/4 object-cover" src={Carousel02} width={259} height={148} alt="Carousel 02" />
-                {/* White box */}
-                <div className="grow bg-white px-4 pb-6">
-                  {/* Avatars */}
-                  <div className="flex items-start -space-x-3 -ml-0.5 mb-4 -mt-5">
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar05} width={36} height={36} alt="Avatar 05" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar06} width={36} height={36} alt="Avatar 06" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar07} width={36} height={36} alt="Avatar 07" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar08} width={36} height={36} alt="Avatar 08" />
-                  </div>
-                  {/* Title */}
-                  <a className="inline-block font-cabinet-grotesk font-bold text-xl decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">Gradients</a>
-                  <div className="text-sm text-gray-500 italic">129 collections</div>
-                </div>
-              </div>
-              <div className="swiper-slide h-auto flex flex-col">
-                {/* Image */}
-                <Image className="w-full aspect-7/4 object-cover" src={Carousel03} width={259} height={148} alt="Carousel 03" />
-                {/* White box */}
-                <div className="grow bg-white px-4 pb-6">
-                  {/* Avatars */}
-                  <div className="flex items-start -space-x-3 -ml-0.5 mb-4 -mt-5">
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar09} width={36} height={36} alt="Avatar 09" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar08} width={36} height={36} alt="Avatar 08" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar10} width={36} height={36} alt="Avatar 10" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar11} width={36} height={36} alt="Avatar 11" />
-                  </div>
-                  {/* Title */}
-                  <a className="inline-block font-cabinet-grotesk font-bold text-xl decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">Liquid 3D</a>
-                  <div className="text-sm text-gray-500 italic">49 collections</div>
-                </div>
-              </div>
-              <div className="swiper-slide h-auto flex flex-col">
-                {/* Image */}
-                <Image className="w-full aspect-7/4 object-cover" src={Carousel04} width={259} height={148} alt="Carousel 04" />
-                {/* White box */}
-                <div className="grow bg-white px-4 pb-6">
-                  {/* Avatars */}
-                  <div className="flex items-start -space-x-3 -ml-0.5 mb-4 -mt-5">
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar18} width={36} height={36} alt="Avatar 18" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar08} width={36} height={36} alt="Avatar 08" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar01} width={36} height={36} alt="Avatar 01" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar11} width={36} height={36} alt="Avatar 11" />
-                  </div>
-                  {/* Title */}
-                  <a className="inline-block font-cabinet-grotesk font-bold text-xl decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">Abstraction</a>
-                  <div className="text-sm text-gray-500 italic">24 collections</div>
-                </div>
-              </div>
-              <div className="swiper-slide h-auto flex flex-col">
-                {/* Image */}
-                <Image className="w-full aspect-7/4 object-cover" src={Carousel05} width={259} height={148} alt="Carousel 05" />
-                {/* White box */}
-                <div className="grow bg-white px-4 pb-6">
-                  {/* Avatars */}
-                  <div className="flex items-start -space-x-3 -ml-0.5 mb-4 -mt-5">
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar09} width={36} height={36} alt="Avatar 09" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar12} width={36} height={36} alt="Avatar 12" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar13} width={36} height={36} alt="Avatar 13" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar14} width={36} height={36} alt="Avatar 14" />
-                  </div>
-                  {/* Title */}
-                  <a className="inline-block font-cabinet-grotesk font-bold text-xl decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">Landscapes</a>
-                  <div className="text-sm text-gray-500 italic">27 collections</div>
-                </div>
-              </div>
-              <div className="swiper-slide h-auto flex flex-col">
-                {/* Image */}
-                <Image className="w-full aspect-7/4 object-cover" src={Carousel06} width={259} height={148} alt="Carousel 06" />
-                {/* White box */}
-                <div className="grow bg-white px-4 pb-6">
-                  {/* Avatars */}
-                  <div className="flex items-start -space-x-3 -ml-0.5 mb-4 -mt-5">
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar15} width={36} height={36} alt="Avatar 01" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar11} width={36} height={36} alt="Avatar 11" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar16} width={36} height={36} alt="Avatar 16" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar17} width={36} height={36} alt="Avatar 17" />
-                  </div>
-                  {/* Title */}
-                  <a className="inline-block font-cabinet-grotesk font-bold text-xl decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">Pastel</a>
-                  <div className="text-sm text-gray-500 italic">22 collections</div>
-                </div>
-              </div>
-              <div className="swiper-slide h-auto flex flex-col">
-                {/* Image */}
-                <Image className="w-full aspect-7/4 object-cover" src={Carousel07} width={259} height={148} alt="Carousel 07" />
-                {/* White box */}
-                <div className="grow bg-white px-4 pb-6">
-                  {/* Avatars */}
-                  <div className="flex items-start -space-x-3 -ml-0.5 mb-4 -mt-5">
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar09} width={36} height={36} alt="Avatar 09" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar18} width={36} height={36} alt="Avatar 18" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar10} width={36} height={36} alt="Avatar 10" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar05} width={36} height={36} alt="Avatar 05" />
-                  </div>
-                  {/* Title */}
-                  <a className="inline-block font-cabinet-grotesk font-bold text-xl decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">Dark 3D</a>
-                  <div className="text-sm text-gray-500 italic">112 collections</div>
-                </div>
-              </div>
-              <div className="swiper-slide h-auto flex flex-col">
-                {/* Image */}
-                <Image className="w-full aspect-7/4 object-cover" src={Carousel08} width={259} height={148} alt="Carousel 08" />
-                {/* White box */}
-                <div className="grow bg-white px-4 pb-6">
-                  {/* Avatars */}
-                  <div className="flex items-start -space-x-3 -ml-0.5 mb-4 -mt-5">
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar06} width={36} height={36} alt="Avatar 06" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar05} width={36} height={36} alt="Avatar 05" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar08} width={36} height={36} alt="Avatar 08" />
-                    <Image className="rounded-full border-2 border-white box-content" src={Avatar07} width={36} height={36} alt="Avatar 07" />
-                  </div>
-                  {/* Title */}
-                  <a className="inline-block font-cabinet-grotesk font-bold text-xl decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">Baroque</a>
-                  <div className="text-sm text-gray-500 italic">77 collections</div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
           {/* Arrows */}
