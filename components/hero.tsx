@@ -63,7 +63,15 @@ export default function Hero() {
                   />
                 </svg>
                 <div>
-                  <div className="font-cabinet-grotesk text-2xl font-extrabold">bus P46</div>
+                  <div className="font-cabinet-grotesk text-2xl font-extrabold">
+                    <a
+                      className='decoration-blue-500 decoration-2 underline-offset-2 hover:underline hover:cursor-pointer'
+                      href='https://www.sancy.com/fr/fiche/commerce-et-service/ligne-p46-clermont-ferrand-la-bourboule-le-mont-dore-la-bourboule_TFO6364670/'
+                      target='_blank'
+                    >
+                      Ligne P46
+                    </a>
+                    </div>
                   <div className="text-gray-500 flex-wrap">au pied de l'immeuble</div>
                 </div>
                 <svg className="fill-gray-300" width="14" height="10" xmlns="http://www.w3.org/2000/svg">

@@ -24,7 +24,15 @@ export default function Faqs() {
               {/* Item */}
               <div className="space-y-2">
                 <h4 className="text-xl font-cabinet-grotesk font-bold">Je viens en transports en commun, vais-je devoir marcher longtemps ?</h4>
-                <p className="text-gray-500">Bien que la commune de La Bourboule ne dispose malheureusement plus de ligne de train, la ligne de bus P46 dessert la commune depuis la ville de Clermont-Ferrand. L'arrêt de bus se situe littéralement au pieds de l'immeuble. Seul une dizaine de mètre vous sépare donc de votre logement.</p>
+                <p className="text-gray-500">Bien que la commune de La Bourboule ne dispose malheureusement plus de ligne de train,
+                  <a
+                    className="mx-1 text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline hover:cursor-pointer"
+                    href="https://www.sancy.com/fr/fiche/commerce-et-service/ligne-p46-clermont-ferrand-la-bourboule-le-mont-dore-la-bourboule_TFO6364670/"
+                    target="_blank"
+                  >
+                    la ligne de bus P46
+                  </a>
+                  dessert la commune depuis la ville de Clermont-Ferrand. L'arrêt de bus se situe littéralement au pieds de l'immeuble. Seul une dizaine de mètre vous sépare donc de votre logement.</p>
               </div>
               {/* Item */}
               <div className="space-y-2">
