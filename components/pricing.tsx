@@ -37,7 +37,7 @@ export default function Pricing() {
                   <div className="font-cabinet-grotesk inline-flex items-baseline mb-2">
                     <span className="text-5xl font-bold">{ options ? '650€' : '600' }</span>
                   </div>
-                  <div className="text-gray-500 mb-6">De avril à juin, ou de septembre à octobre. Profitez de la douceur de vivre, sans la foule.</div>
+                  <div className="text-gray-500 mb-6">Pour 21 nuits de cure. <br /> Entre avril et juin, ou entre septembre et octobre.<br /> Profitez de la douceur de vivre, sans la foule.</div>
                   <Link className="btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-xs" href="/contact">Réservez votre logement</Link>
                 </div>
                 <div className="font-medium mb-4">Inclus dans le tarif</div>
@@ -91,7 +91,7 @@ export default function Pricing() {
                     <span className="text-5xl font-bold">{options ? '793' : '750'}</span>
                     <span className="font-medium text-gray-400">/mo</span>
                   </div>
-                  <div className="text-gray-400 mb-6">De Juillet à Aout.</div>
+                  <div className="text-gray-400 mb-6">Pour 21 nuits de cure. <br /> De Juillet à Aout.<br />Le soleil, et l'ambiance estivale !</div>
                   <Link className="btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-xs" href="/contact">Réservez votre logement.</Link>
                 </div>
                 <div className="font-medium text-gray-100 mb-4">Inclus dans le tarif</div>
