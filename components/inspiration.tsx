@@ -372,7 +372,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Extérieur</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 1</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 1</div>
                         </div>
                       </div>
                     </div>
@@ -386,7 +386,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Extérieur</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 2</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 2</div>
                         </div>
                       </div>
                     </div>
@@ -400,7 +400,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Extérieur</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 3</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 3</div>
                         </div>
                       </div>
                     </div>
@@ -416,7 +416,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Cuisine</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 1</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 1</div>
                         </div>
                       </div>
                     </div>
@@ -430,7 +430,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Cuisine</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 2</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 2</div>
                         </div>
                       </div>
                     </div>
@@ -444,7 +444,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Cuisine</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 3</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 3</div>
                         </div>
                       </div>
                     </div>
@@ -458,7 +458,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Cuisine</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 4</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 4</div>
                         </div>
                       </div>
                     </div>
@@ -474,7 +474,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Salle de bain</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 1</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 1</div>
                         </div>
                       </div>
                     </div>
@@ -488,7 +488,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Salle de bain</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 2</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 2</div>
                         </div>
                       </div>
                     </div>
@@ -502,7 +502,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Salle de bain</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 3</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 3</div>
                         </div>
                       </div>
                     </div>
@@ -516,7 +516,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Salle de bain</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 4</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 4</div>
                         </div>
                       </div>
                     </div>
@@ -530,7 +530,7 @@ export default function Inspiration() {
                       <div className="flex items-center">
                         <div className="truncate">
                           <div className="font-bold text-white truncate">Salle de bain</div>
-                          <div className="text-xs text-white opacity-60 truncate">Vue 5</div>
+                          <div className="text-xs text-white opacity-60 truncate">Studio 5</div>
                         </div>
                       </div>
                     </div>
