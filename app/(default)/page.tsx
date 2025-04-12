@@ -21,9 +21,7 @@ export default function Home() {
       <Description />
       <Inspiration />
       <Carousel />
-      <Creatives />
       <Pricing />
-      <Testimonials />
       <Faqs />
       <Blog />
       <Cta />
