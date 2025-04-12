@@ -25,3 +25,6 @@ yarn-error.log*
 .cache
 /.contentlayer
 .mailing
+
+# Other
+todo.md
