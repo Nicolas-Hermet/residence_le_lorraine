@@ -20,36 +20,15 @@ export default function Footer() {
                 </svg>
               </Link>
             </div>
-            <form className="w-full max-w-sm">
-              <div className="flex flex-col sm:flex-row justify-center max-w-xs mx-auto sm:max-w-none">
-                <input type="email" className="form-input w-full mb-2 sm:mb-0 sm:mr-2" placeholder="Your email" aria-label="Your email" />
-                <button className="btn-sm text-white bg-blue-500 hover:bg-blue-600 shadow-xs whitespace-nowrap" type="submit">
-                  Join Newsletter
-                </button>
-              </div>
-              {/* Success message */}
-              {/* <p class="font-medium text-emerald-600 text-center sm:text-left sm:absolute mt-2 opacity-75 text-sm">Thanks for subscribing!</p> */}
-            </form>
           </div>
           {/* Bottom area */}
           <div className="text-center md:flex md:items-center md:justify-between mb-8 md:mb-6">
             {/* Social links */}
             <ul className="inline-flex mb-4 md:order-2 md:ml-4 md:mb-0">
-              <li>
-                <a
-                  className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
-                  href="#0"
-                  aria-label="Twitter"
-                >
-                  <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
-                    <path d="m13.063 9 3.495 4.475L20.601 9h2.454l-5.359 5.931L24 23h-4.938l-3.866-4.893L10.771 23H8.316l5.735-6.342L8 9h5.063Zm-.74 1.347h-1.457l8.875 11.232h1.36l-8.778-11.232Z" />
-                  </svg>
-                </a>
-              </li>
               <li className="ml-4">
                 <a
                   className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
-                  href="#0"
+                  href="github.com/Nicolas-Hermet/residence_le_lorraine"
                   aria-label="Github"
                 >
                   <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -60,7 +39,7 @@ export default function Footer() {
               <li className="ml-4">
                 <a
                   className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
-                  href="#0"
+                  href="/signup"
                   aria-label="Telegram"
                 >
                   <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
@@ -71,26 +50,21 @@ export default function Footer() {
             </ul>
             {/* Left links */}
             <div className="text-sm font-medium md:order-1 space-x-6 mb-2 md:mb-0">
-              <a className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">
-                About
+              <a className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="https://www.fulltrack.dev" target="_blank">
+                A propos du propriétaire
               </a>
               <a className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">
-                Get in touch
-              </a>
-              <a className="text-gray-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline" href="#0">
-                Privacy &amp; Terms
+                Politique RGPD
               </a>
             </div>
           </div>
           {/* Bottom notes */}
           <div className="text-xs text-gray-400 text-center md:text-left">
-            Some of our posts may contain affiliate links to partner brands. We earn a small commission if you click the link and make a purchase.
-            There is no extra cost to you, so it's just a nice way to help support the site. All images, videos, and other content posted on the site
-            is attributed to their creators and original sources. If you see something wrong here or you would like to have it removed, please{' '}
-            <a className="font-medium text-blue-500 decoration-blue-500 underline-offset-2 hover:underline" href="#0">
-              contact us
+            Copyright © Nicolas Hermet (EI) 2025.
+            Fait avec ❤️ par
+            <a className='ml-1 font-medium text-blue-500 decoration-blue-500 underline-offset-2 hover:underline' href="https://www.fulltrack.dev" target="_blank">
+              Full Track Dev.
             </a>
-            .
           </div>
         </div>
       </div>
