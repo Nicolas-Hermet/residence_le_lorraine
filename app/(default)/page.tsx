@@ -23,7 +23,7 @@ export default function Home() {
       <Carousel />
       <Pricing />
       <Faqs />
-      <Blog />
+      {/* <Blog /> */}
       <Cta />
     </>
   )
