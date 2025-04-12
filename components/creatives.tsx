@@ -171,7 +171,7 @@ export default function Creatives() {
                   It is a long established fact that a reader will be distracted by the readable content of a page when looking.
                 </p>
                 <div>
-                  <Link className="btn text-white bg-blue-500 hover:bg-blue-600 shadow-xs" href="/signup">
+                  <Link className="btn text-white bg-blue-500 hover:bg-blue-600 shadow-xs" href="/contact">
                     Join The Community
                   </Link>
                 </div>

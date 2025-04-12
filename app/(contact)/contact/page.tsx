@@ -1,13 +1,13 @@
-export const metadata = {
-  title: 'Sign Up - Creative',
-  description: 'Page description',
-}
 
-import Link from 'next/link'
+"use client";
+
+import { useState } from 'react'
 import Image from 'next/image'
 import Avatar from '@/public/images/join-avatar.jpg'
 
-export default function SignUp() {
+export default function Contact() {
+  const [showDates, setShowDates] = useState<boolean>(true)
+
   return (
     <>
       {/* Page header */}
@@ -21,7 +21,7 @@ export default function SignUp() {
           </svg>
           <Image className="rounded-full" src={Avatar} width={48} height={48} alt="Avatar 01" />
         </div>
-        <h1 className="h2 font-cabinet-grotesk">You've been invited by Mark Hooker to join Creative</h1>
+        <h1 className="h2 font-cabinet-grotesk">Une question ? Une réservation ? <br /> Dites moi tout.</h1>
       </div>
       {/* Form */}
       <div className="max-w-sm mx-auto">
@@ -29,81 +29,111 @@ export default function SignUp() {
           <div className="flex flex-wrap mb-4">
             <div className="w-full">
               <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="email">
-                Email
+                Votre Email.
               </label>
-              <input id="email" type="email" className="form-input w-full text-gray-800" defaultValue="markhooker@gmail.com" required />
-            </div>
-          </div>
-          <div className="flex flex-wrap mb-4">
-            <div className="w-full">
-              <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="password">
-                Password
-              </label>
-              <input id="password" type="password" className="form-input w-full text-gray-800" required />
-            </div>
-          </div>
-          <div className="flex flex-wrap mb-4">
-            <div className="w-full">
-              <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="username">
-                Username
-              </label>
-              <input id="username" type="text" className="form-input w-full text-gray-800" required />
+              <input id="email" type="email" className="form-input w-full text-gray-800" required />
             </div>
           </div>
           <div className="flex flex-wrap mb-4">
             <div className="w-full">
               <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="name">
-                Full Name
+                Votre nom
               </label>
-              <input id="Full Name" type="text" className="form-input w-full text-gray-800" required />
+              <input id="name" type="text" className="form-input w-full text-gray-800" required />
+            </div>
+          </div>
+          <div className="flex flex-wrap mb-4">
+            <div className="w-full">
+              <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="phone">
+                Votre téléphone
+              </label>
+              <input id="phone" type="phone" className="form-input w-full text-gray-800" required />
+            </div>
+          </div>
+            <div className="flex flex-wrap mb-4">
+            <div className="w-full">
+              <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="username">
+              Objet de votre demande
+              </label>
+              <div className="flex flex-row space-x-4">
+              <label className="flex items-center">
+                <input
+                type="radio"
+                name="requestType"
+                value="question"
+                className="form-radio text-blue-500"
+                onChange={() => setShowDates(false)}
+                />
+                <span className="ml-2 text-gray-500">Poser une Question</span>
+              </label>
+              <label className="flex items-center">
+                <input
+                type="radio"
+                name="requestType"
+                value="reservation"
+                className="form-radio text-blue-500"
+                defaultChecked
+                onChange={() => setShowDates(true)}
+                />
+                <span className="ml-2 text-gray-500">Faire une Réservation</span>
+              </label>
+              </div>
+            </div>
+            </div>
+            {showDates && (
+            <div className="flex flex-wrap mb-4">
+              <div className="w-full">
+              <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="startDate">
+                Date de début de réservation souhaitée:
+              </label>
+              <input
+                id="startDate"
+                type="date"
+                className="form-input w-full text-gray-800"
+                required={showDates}
+              />
+              </div>
+              <div className="w-full mt-4">
+              <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="endDate">
+                Date de fin de réservation souhaitée:
+              </label>
+              <input
+                id="endDate"
+                type="date"
+                className="form-input w-full text-gray-800"
+                required={showDates}
+              />
+              </div>
+            </div>
+            )}
+          <div className="flex flex-wrap mb-4">
+            <div className="w-full">
+              <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="name">
+                Votre message
+              </label>
+              <textarea id="Full Name" className="form-input w-full text-gray-800" required />
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-between mt-6">
-            <Link
-              className="font-medium text-sm sm:text-base text-blue-500 decoration-blue-500 decoration-2 underline-offset-2 hover:underline"
-              href="/signin"
-            >
-              Go to Login
-            </Link>
+            <div></div>
             <div className="ml-2">
-              <button className="btn-sm text-white bg-blue-500 hover:bg-blue-600 shadow-xs">Join The Community</button>
+              <button className="btn-sm text-white bg-blue-500 hover:bg-blue-600 shadow-xs">Envoyer votre demande</button>
             </div>
           </div>
           <div className="mt-5">
             <label className="flex items-start">
-              <input type="checkbox" className="form-checkbox mt-0.5" defaultChecked />
+              <input type="checkbox" className="form-checkbox mt-0.5" defaultChecked required />
               <span className="text-sm text-gray-500 ml-3">
-                I accept the{' '}
+                J'accepte d'être recontacté, j'ai lu la{' '}
                 <a className="underline hover:decoration-blue-500 underline-offset-2 hover:underline" href="#0">
-                  terms
+                politique RGPD
                 </a>{' '}
-                and{' '}
-                <a className="underline hover:decoration-blue-500 underline-offset-2 hover:underline" href="#0">
-                  privacy policy
-                </a>
                 .
               </span>
             </label>
           </div>
         </form>
-        <div className="flex items-center my-6">
-          <div className="border-t border-gray-200 grow mr-3" aria-hidden="true" />
-          <div className="text-sm text-gray-500 italic">or</div>
-          <div className="border-t border-gray-200 grow ml-3" aria-hidden="true" />
-        </div>
-        <form>
-          <div className="flex flex-wrap">
-            <div className="w-full">
-              <button className="btn-sm text-white bg-[#1D9BF0] hover:bg-[#1A90DF] w-full relative flex items-center">
-                <svg className="fill-white opacity-80" width="16" height="14" xmlns="http://www.w3.org/2000/svg">
-                  <path d="m5.063 0 3.495 4.475L12.601 0h2.454L9.696 5.931 16 14h-4.938L7.197 9.107 2.771 14H.316L6.05 7.658 0 0h5.063Zm-.74 1.347H2.866l8.875 11.232h1.36L4.323 1.347Z" />
-                </svg>
-                <span className="flex-auto pl-16 pr-8 -ml-16">Join with Twitter</span>
-              </button>
-            </div>
-          </div>
-        </form>
-      </div>    
+      </div>
     </>
   )
 }

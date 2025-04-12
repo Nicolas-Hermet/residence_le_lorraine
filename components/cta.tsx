@@ -23,7 +23,7 @@ export default function Cta() {
               </div>
               {/* CTA button */}
               <div className="shrink-0">
-                <Link className="btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-xs" href="/signup">
+                <Link className="btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-xs" href="/contact">
                   Réservez votre logement.
                 </Link>
               </div>

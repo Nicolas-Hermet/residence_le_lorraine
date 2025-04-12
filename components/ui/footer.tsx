@@ -9,7 +9,7 @@ export default function Footer() {
           <div className="flex flex-col sm:flex-row items-center justify-center sm:justify-between mb-12 md:mb-6">
             <div className="shrink-0 mr-4">
               {/* Logo */}
-              <Link className="inline-flex group mb-8 sm:mb-0" href="/" aria-label="Cruip">
+              <Link className="inline-flex group mb-8 sm:mb-0" href="/" aria-label="Logo">
                 <svg
                   className="fill-blue-500 group-hover:fill-blue-600 transition duration-150 ease-in-out w-8 h-8"
                   width="32"
@@ -39,7 +39,7 @@ export default function Footer() {
               <li className="ml-4">
                 <a
                   className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
-                  href="/signup"
+                  href="/contact"
                   aria-label="Telegram"
                 >
                   <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">

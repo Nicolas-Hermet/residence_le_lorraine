@@ -10,7 +10,7 @@ export default function Header({ nav = true }: {
           {/* Site branding */}
           <div className="shrink-0 mr-4">
             {/* Logo */}
-            <Link className="block group" href="/" aria-label="Cruip">
+            <Link className="block group" href="/" aria-label="Logo">
               <svg
                 className="fill-blue-500 group-hover:fill-blue-600 transition duration-150 ease-in-out w-8 h-8"
                 width="32"
@@ -27,7 +27,7 @@ export default function Header({ nav = true }: {
               {/* Desktop sign in links */}
               <ul className="flex grow justify-end flex-wrap items-center">
                 <li className="ml-3">
-                  <Link className="btn-sm text-white bg-blue-500 hover:bg-blue-600 w-full shadow-xs" href="/signup">
+                  <Link className="btn-sm text-white bg-blue-500 hover:bg-blue-600 w-full shadow-xs" href="/contact">
                     Réservez votre logement
                   </Link>
                 </li>
