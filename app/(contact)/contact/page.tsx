@@ -23,52 +23,57 @@ export default function Contact() {
     setIsSubmitting(true)
     setSubmitStatus('idle')
 
-    const form = e.target
-    if (!(form instanceof HTMLFormElement)) {
-      console.error("Le formulaire soumis n'est pas un HTMLFormElement.")
-      setSubmitStatus('error')
-      return
-    }
+    try {
+      const form = e.currentTarget as HTMLFormElement
+      const formData = new FormData(form)
+      const data = {
+        email: formData.get('email'),
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        requestType: formData.get('requestType'),
+        startDate: formData.get('startDate'),
+        endDate: formData.get('endDate'),
+        message: formData.get('message'),
+      }
 
-    // Attendre que grecaptcha soit prêt AVANT d'exécuter
-    window.grecaptcha.ready(async () => {
+      // Get reCAPTCHA token
+      let token = ''
       try {
-        const token = await window.grecaptcha.execute(
+        token = await window.grecaptcha.execute(
           process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
           { action: 'submit_contact_form' }
         )
-
-        const formData = new FormData(form)
-        const data = {
-          email: formData.get('email'),
-          name: formData.get('name'),
-          phone: formData.get('phone'),
-          requestType: formData.get('requestType'),
-          startDate: formData.get('startDate'),
-          endDate: formData.get('endDate'),
-          message: formData.get('message'),
-          recaptchaToken: token,
+      } catch (recaptchaError) {
+        console.error('reCAPTCHA error:', recaptchaError)
+        // Continue without reCAPTCHA in development
+        if (process.env.NODE_ENV === 'development') {
+          token = 'development-token'
+        } else {
+          throw new Error('reCAPTCHA verification failed')
         }
-
-        const response = await fetch('/api/contact', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify(data),
-        })
-
-        if (!response.ok) throw new Error('Échec de l’envoi')
-
-        setSubmitStatus('success')
-        form.reset()
-      } catch (error) {
-        console.error('Erreur lors de l’envoi du message:', error)
-        setSubmitStatus('error')
-      } finally {
-        setIsSubmitting(false)
       }
-    })
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          ...data,
+          recaptchaToken: token,
+        }),
+      })
+
+      if (!response.ok) throw new Error('Failed to submit')
+
+      setSubmitStatus('success')
+      form.reset()
+    } catch (error) {
+      console.error('Error sending message:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
   }
 
   return (
