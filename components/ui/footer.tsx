@@ -28,7 +28,7 @@ export default function Footer() {
               <li className="ml-4">
                 <a
                   className="flex justify-center items-center text-blue-500 bg-blue-100 hover:text-white hover:bg-blue-500 rounded-full transition duration-150 ease-in-out"
-                  href="github.com/Nicolas-Hermet/residence_le_lorraine"
+                  href="https://github.com/Nicolas-Hermet/residence_le_lorraine"
                   aria-label="Github"
                 >
                   <svg className="w-8 h-8 fill-current" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
