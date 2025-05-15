@@ -1,12 +1,72 @@
-
 "use client";
 
 import { useState } from 'react'
 import Image from 'next/image'
 import Avatar from '@/public/images/join-avatar.jpg'
 
+declare global {
+  interface Window {
+    grecaptcha: {
+      ready: (callback: () => void) => void;
+      execute: (siteKey: string, options: { action: string }) => Promise<string>;
+    };
+  }
+}
+
 export default function Contact() {
   const [showDates, setShowDates] = useState<boolean>(true)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle')
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault()
+    setIsSubmitting(true)
+    setSubmitStatus('idle')
+
+    try {
+      // Get reCAPTCHA token
+      const token = await window.grecaptcha.execute(
+        process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!,
+        { action: 'submit_contact_form' }
+      )
+
+      const form = e.target
+      if (!(form instanceof HTMLFormElement)) {
+        console.error('Le formulaire soumis n\'est pas un HTMLFormElement.')
+        return
+      }
+
+      const formData = new FormData(form)
+      const data = {
+        email: formData.get('email'),
+        name: formData.get('name'),
+        phone: formData.get('phone'),
+        requestType: formData.get('requestType'),
+        startDate: formData.get('startDate'),
+        endDate: formData.get('endDate'),
+        message: formData.get('message'),
+        recaptchaToken: token,
+      }
+
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(data),
+      })
+
+      if (!response.ok) throw new Error('Failed to submit')
+
+      setSubmitStatus('success')
+      form.reset()
+    } catch (error) {
+      console.error('Error sending message:', error)
+      setSubmitStatus('error')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
 
   return (
     <>
@@ -25,13 +85,13 @@ export default function Contact() {
       </div>
       {/* Form */}
       <div className="max-w-sm mx-auto">
-        <form>
+        <form onSubmit={handleSubmit}>
           <div className="flex flex-wrap mb-4">
             <div className="w-full">
               <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="email">
                 Votre Email.
               </label>
-              <input id="email" type="email" className="form-input w-full text-gray-800" required />
+              <input id="email" name="email" type="email" className="form-input w-full text-gray-800" required />
             </div>
           </div>
           <div className="flex flex-wrap mb-4">
@@ -39,7 +99,7 @@ export default function Contact() {
               <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="name">
                 Votre nom
               </label>
-              <input id="name" type="text" className="form-input w-full text-gray-800" required />
+              <input id="name" name="name" type="text" className="form-input w-full text-gray-800" required />
             </div>
           </div>
           <div className="flex flex-wrap mb-4">
@@ -47,7 +107,7 @@ export default function Contact() {
               <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="phone">
                 Votre téléphone
               </label>
-              <input id="phone" type="phone" className="form-input w-full text-gray-800" required />
+              <input id="phone" name="phone" type="phone" className="form-input w-full text-gray-800" required />
             </div>
           </div>
             <div className="flex flex-wrap mb-4">
@@ -88,6 +148,7 @@ export default function Contact() {
               </label>
               <input
                 id="startDate"
+                name="startDate"
                 type="date"
                 className="form-input w-full text-gray-800"
                 required={showDates}
@@ -99,6 +160,7 @@ export default function Contact() {
               </label>
               <input
                 id="endDate"
+                name="endDate"
                 type="date"
                 className="form-input w-full text-gray-800"
                 required={showDates}
@@ -108,18 +170,34 @@ export default function Contact() {
             )}
           <div className="flex flex-wrap mb-4">
             <div className="w-full">
-              <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="name">
+              <label className="block text-gray-500 text-sm font-medium mb-1" htmlFor="message">
                 Votre message
               </label>
-              <textarea id="Full Name" className="form-input w-full text-gray-800" required />
+              <textarea id="message" name="message" className="form-input w-full text-gray-800" required />
             </div>
           </div>
           <div className="flex flex-wrap items-center justify-between mt-6">
             <div></div>
             <div className="ml-2">
-              <button className="btn-sm text-white bg-blue-500 hover:bg-blue-600 shadow-xs">Envoyer votre demande</button>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="btn-sm text-white bg-blue-500 hover:bg-blue-600 shadow-xs disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'Envoi en cours...' : 'Envoyer votre demande'}
+              </button>
             </div>
           </div>
+          {submitStatus === 'success' && (
+            <div className="mt-4 p-4 bg-green-100 text-green-700 rounded">
+              Votre message a été envoyé avec succès !
+            </div>
+          )}
+          {submitStatus === 'error' && (
+            <div className="mt-4 p-4 bg-red-100 text-red-700 rounded">
+              Une erreur est survenue. Veuillez réessayer.
+            </div>
+          )}
           <div className="mt-5">
             <label className="flex items-start">
               <input type="checkbox" className="form-checkbox mt-0.5" defaultChecked required />
