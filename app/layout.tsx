@@ -30,8 +30,8 @@ const cabinet = localFont({
 })
 
 export const metadata: Metadata = {
-  title: 'Résidence Le Lorraine - Hébergements Courte Durée et Cures Thermales',
-  description: 'Présentation des logements, tout ce que vous devez savoir avant de réserver votre logement pour une cure à La Bourboule',
+  title: 'Résidence Le Lorraine - Hébergements Courtes Durées et Cures Thermales',
+  description: 'Présentation des logements, tout ce que vous devez savoir avant de réserver votre logement pour une cure ou un court séjour à La Bourboule',
 }
 
 export default function RootLayout({
