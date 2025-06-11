@@ -9,12 +9,16 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@mdx-js/react": "^3.1.0",
     "@types/node": "^22.13.0",
     "@types/nodemailer": "^6.4.17",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
     "aos": "3.0.0-beta.6",
+    "front-matter": "^4.0.2",
+    "gray-matter": "^4.0.3",
     "next": "15.1.6",
+    "next-mdx-remote": "^5.0.0",
     "nodemailer": "^7.0.3",
     "react": "19.0.0",
     "react-dom": "19.0.0",
