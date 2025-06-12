@@ -10,6 +10,7 @@ export interface BlogPost {
   date: string
   description: string
   content: string
+  thumbnail?: string
 }
 
 export function lastThreePosts(): BlogPost[] {
@@ -31,6 +32,7 @@ export function getAllPosts(): BlogPost[] {
       title: data.title,
       date: data.date,
       description: data.description,
+      thumbnail: data.thumbnail,
       content,
     }
   })
@@ -49,6 +51,7 @@ export function getPostBySlug(slug: string): BlogPost | null {
       title: data.title,
       date: data.date,
       description: data.description,
+      thumbnail: data.thumbnail,
       content,
     }
   } catch (error) {

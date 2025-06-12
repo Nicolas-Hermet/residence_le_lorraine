@@ -10,6 +10,7 @@ import Carousel from '@/components/carousel'
 import Pricing from '@/components/pricing'
 import Faqs from '@/components/faqs'
 import Cta from '@/components/cta'
+import Blog from '@/components/blog'
 
 export default function Home() {
   return (
@@ -20,7 +21,7 @@ export default function Home() {
       <Carousel />
       <Pricing />
       <Faqs />
-      {/* <Blog /> */}
+      <Blog />
       <Cta />
     </>
   )
