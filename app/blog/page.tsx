@@ -1,8 +1,13 @@
 import Link from 'next/link'
 import { getAllPosts } from '@/lib/mdx'
+import { redirect } from 'next/navigation'
 
-export default function BlogPage() {
+export default async function BlogPage() {
   const posts = getAllPosts()
+
+  if (!posts || posts.length === 0) {
+    redirect('/')
+  }
 
   return (
     <div className="container mx-auto px-4 py-8">
