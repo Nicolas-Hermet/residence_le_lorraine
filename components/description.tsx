@@ -9,7 +9,9 @@ export default function Description() {
               Un emplacement privilégié pour votre séjour bien-être
             </h2>
             <p className="text-xl text-gray-500">
-              Située au cœur de La Bourboule, notre résidence de studios meublés est idéale pour les curistes et voyageurs en quête de détente. En face des thermes, à quelques pas de la navette et des commerces, chaque logement vous offre confort, calme et autonomie pour une semaine ou un week-end prolongé.
+              Située au cœur de La Bourboule, notre résidence de studios meublés est idéale pour les curistes et voyageurs en quête de détente.
+              En face des thermes, à quelques pas de la navette et des commerces, chaque logement vous offre confort, calme et autonomie pour une semaine ou un week-end prolongé.
+              Votre cure thermale devient une expérience encore plus agréable et pratique, avec tout le nécessaire pour vous sentir comme chez vous.
             </p>
           </div>
         </div>

@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Résidence Le Lorraine - Hébergements Courte Durée et Cures Thermales',
-  description: 'Présentation des logements, tout ce que vous devez savoir avant de réserver votre logement pour une cure à La Bourboule',
+  title: 'Résidence Le Lorraine | Logements Curistes & Randonnée à La Bourboule',
+  description: 'Séjournez confortablement à Résidence Le Lorraine pour votre cure thermale ou escapade randonnée à La Bourboule. Réservation rapide et facile !',
 }
 
 import Hero from '@/components/hero'
