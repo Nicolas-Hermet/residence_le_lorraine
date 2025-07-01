@@ -7,6 +7,7 @@ type Metadata = {
   publishedAt: string;
   updatedAt?: string;
   image?: string;
+  imageCredit?: string;
   author?: string;
   authorImg?: string;
   authorRole?: string;
