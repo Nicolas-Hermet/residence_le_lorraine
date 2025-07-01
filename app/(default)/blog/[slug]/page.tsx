@@ -14,11 +14,9 @@ export async function generateStaticParams() {
   }));
 }
 
-export async function generateMetadata(
-  props: {
-    params: Promise<{ slug: string }>;
-  }
-): Promise<Metadata | undefined> {
+export async function generateMetadata(props: {
+  params: Promise<{ slug: string }>;
+}): Promise<Metadata | undefined> {
   const params = await props.params;
   const post = getBlogPosts().find((post) => post.slug === params.slug);
 
@@ -34,11 +32,9 @@ export async function generateMetadata(
   };
 }
 
-export default async function SinglePost(
-  props: {
-    params: Promise<{ slug: string }>;
-  }
-) {
+export default async function SinglePost(props: {
+  params: Promise<{ slug: string }>;
+}) {
   const params = await props.params;
   const post = getBlogPosts().find((post) => post.slug === params.slug);
 
@@ -55,11 +51,12 @@ export default async function SinglePost(
               <article>
                 {/* Post header */}
                 <header className="mb-8">
-                  <h1 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-200),var(--color-indigo-200),var(--color-gray-50),var(--color-indigo-300),var(--color-gray-200))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
+
+                  <h1 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-600),var(--color-indigo-400),var(--color-gray-400),var(--color-indigo-300),var(--color-gray-600))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
                     {post.metadata.title}
                   </h1>
                   <div className="mx-auto mb-5 max-w-3xl">
-                    <p className="text-lg text-indigo-200/65">
+                    <p className="text-lg text-blue-600/70">
                       {post.metadata.description}
                     </p>
                   </div>
@@ -104,15 +101,23 @@ export default async function SinglePost(
 
                 {/* Article image */}
                 {post.metadata.image && (
-                  <figure className="relative my-8 overflow-hidden rounded-2xl border border-gray-800/80 before:absolute before:inset-0 before:-z-10 before:bg-linear-to-br before:from-gray-900 before:via-indigo-500/50 before:to-indigo-500 before:opacity-50 lg:-ml-32 lg:-mr-32">
+                  <figure className="relative my-8 overflow-hidden rounded-2xl  lg:-ml-32 lg:-mr-32">
                     <Image
-                      className="aspect-video w-full object-cover opacity-70 grayscale"
+                      className="aspect-video w-full object-cover opacity-70"
                       src={post.metadata.image}
                       width={1024}
                       height={576}
                       alt={post.metadata.title}
                       priority
                     />
+                    {post.metadata.imageCredit && (
+                      <figcaption
+                        className="mt-3 text-center text-sm text-gray-600"
+                        dangerouslySetInnerHTML={{
+                          __html: post.metadata.imageCredit,
+                        }}
+                      ></figcaption>
+                    )}
                   </figure>
                 )}
 
@@ -122,7 +127,6 @@ export default async function SinglePost(
                 </div>
               </article>
             </div>
-
           </div>
         </div>
       </section>
