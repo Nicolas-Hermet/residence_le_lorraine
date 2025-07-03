@@ -10,6 +10,10 @@
   strategy: base;
 }
 
+@plugin "@tailwindcss/typography" {
+  strategy: base;
+}
+
 @theme {
   --font-inter: Inter, sans-serif;
   --font-cabinet-grotesk: Cabinet Grotesk, sans-serif;
