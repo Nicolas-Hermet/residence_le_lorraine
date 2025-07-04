@@ -51,7 +51,6 @@ export default async function SinglePost(props: {
               <article>
                 {/* Post header */}
                 <header className="mb-8">
-
                   <h1 className="animate-[gradient_6s_linear_infinite] bg-[linear-gradient(to_right,var(--color-gray-600),var(--color-indigo-400),var(--color-gray-400),var(--color-indigo-300),var(--color-gray-600))] bg-[length:200%_auto] bg-clip-text pb-4 font-nacelle text-3xl font-semibold text-transparent md:text-4xl">
                     {post.metadata.title}
                   </h1>
@@ -73,29 +72,34 @@ export default async function SinglePost(props: {
                           />
                         </a>
                       )}
-                      <div className="text-sm font-medium text-gray-200">
-                        <span>{post.metadata.author}</span>
+                      <div className="text-sm font-medium text-gray-400">
+                        <span>{post.metadata.author || "Nicolas Hermet"}</span>
                         <span className="text-gray-700"> - </span>
                         <a
-                          className="text-indigo-200/65 transition-colors hover:text-indigo-500"
-                          href={post.metadata.authorLink}
+                          className="text-indigo-400/65 transition-colors hover:text-indigo-500"
+                          href={
+                            post.metadata.authorLink ||
+                            "https://www.fulltrack.dev"
+                          }
                         >
-                          {post.metadata.authorRole}
+                          {post.metadata.authorRole || "Software Engineer"}
                         </a>
                       </div>
                     </div>
-                    <ul className="flex flex-wrap gap-2">
-                      <li>
-                        <a
-                          className="btn-sm relative rounded-full bg-gray-800/40 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)] hover:bg-gray-800/60"
-                          href="#0"
-                        >
-                          <span className="bg-linear-to-r from-indigo-500 to-indigo-200 bg-clip-text text-transparent">
-                            {post.metadata.category}
-                          </span>
-                        </a>
-                      </li>
-                    </ul>
+                    {post.metadata.category && (
+                      <ul className="flex flex-wrap gap-2">
+                        <li>
+                          <a
+                            className="btn-sm relative rounded-full bg-linear-to-b from-blue-200 via-blue-400/60 to-blue-200 px-2.5 py-0.5 text-xs font-normal before:pointer-events-none before:absolute before:inset-0 before:rounded-[inherit] before:border before:border-transparent before:[background:linear-gradient(to_bottom,--theme(--color-gray-700/.15),--theme(--color-gray-700/.5))_border-box] before:[mask-composite:exclude_!important] before:[mask:linear-gradient(white_0_0)_padding-box,_linear-gradient(white_0_0)]"
+                            href="#0"
+                          >
+                            <span className="text-gray-800/60 bg-linear-to-r from-gray-600 to-indigo-200 bg-clip-text hover:text-black">
+                              {post.metadata.category}
+                            </span>
+                          </a>
+                        </li>
+                      </ul>
+                    )}
                   </div>
                 </header>
 
