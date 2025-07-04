@@ -1,3 +1,4 @@
+import Footer from '@/components/ui/footer'
 import './css/style.css'
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
@@ -47,10 +48,11 @@ export default function RootLayout({
           strategy="afterInteractive"
         />
       </head>
-      <body className={`${inter.variable} ${cabinet.variable} font-inter antialiased bg-white text-gray-800 tracking-tight`}>
+      <body className={`${inter.variable} ${cabinet.variable} font-inter antialiased bg-zinc-100 text-gray-800 tracking-tight`}>
         <div className="flex flex-col min-h-screen overflow-hidden">
           {children}
         </div>
+        <Footer />
       </body>
     </html>
   )

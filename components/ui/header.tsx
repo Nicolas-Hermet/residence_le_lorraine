@@ -95,6 +95,14 @@ export default function Header({ nav = true }: { nav?: boolean }) {
               <ul className="flex grow justify-end flex-wrap items-center">
                 <li className="ml-3">
                   <Link
+                    className="font-bold text-blue-400 transition hover:text-indigo-500 px-4 py-2"
+                    href="/blog"
+                  >
+                    Blog
+                  </Link>
+                </li>
+                <li className="ml-3">
+                  <Link
                     className="btn-sm text-white bg-blue-500 hover:bg-blue-600 w-full shadow-xs"
                     href="/contact"
                   >
