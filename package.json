@@ -19,6 +19,7 @@
     "@types/nodemailer": "^6.4.17",
     "@types/react": "19.0.8",
     "@types/react-dom": "19.0.3",
+    "@vercel/analytics": "^1.5.0",
     "aos": "3.0.0-beta.6",
     "date-fns": "^4.1.0",
     "front-matter": "^4.0.2",

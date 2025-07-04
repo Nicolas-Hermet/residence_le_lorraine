@@ -1,3 +1,4 @@
+import { Analytics } from '@vercel/analytics/next';
 import Footer from '@/components/ui/footer'
 import './css/style.css'
 import type { Metadata } from 'next'
@@ -51,6 +52,7 @@ export default function RootLayout({
       <body className={`${inter.variable} ${cabinet.variable} font-inter antialiased bg-zinc-100 text-gray-800 tracking-tight`}>
         <div className="flex flex-col min-h-screen overflow-hidden">
           {children}
+          <Analytics />
         </div>
         <Footer />
       </body>
