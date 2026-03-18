@@ -1,11 +1,8 @@
 'use client'
 
-import { useState } from 'react'
 import Link from 'next/link'
 
 export default function Pricing() {
-  const [options, setOptions] = useState<boolean>(true)
-
   return (
     <section className="relative border-t border-gray-100">
       {/* Bg gradient */}
@@ -18,24 +15,13 @@ export default function Pricing() {
           </div>
           {/* Pricing tables */}
           <div>
-            {/* Pricing toggle */}
-            <div className="flex justify-center max-w-[22rem] m-auto mb-8 lg:mb-16">
-              <div className="relative flex w-full mx-6 p-1 bg-gray-200 rounded-full">
-                <span className="absolute inset-0 m-1 pointer-events-none" aria-hidden="true">
-                  <span className={`absolute inset-0 w-1/2 bg-white rounded-full shadow-sm transform transition duration-150 ease-in-out ${options ? 'translate-x-0' : 'translate-x-full'}`} />
-                </span>
-                <button className={`relative flex-1 text-sm font-medium p-1 transition duration-150 ease-in-out ${options && 'text-gray-500'}`} onClick={() => setOptions(true)}>Toutes options <span className="text-green-500">-5%</span>
-                </button>
-                <button className={`relative flex-1 text-sm font-medium p-1 transition duration-150 ease-in-out ${options && 'text-gray-500'}`} onClick={() => setOptions(false)}>Sans option</button>
-              </div>
-            </div>
             <div className="max-w-sm mx-auto grid gap-8 lg:grid-cols-2 lg:gap-6 items-start lg:max-w-3xl pt-4">
               {/* Pricing table 1 */}
               <div className="relative flex flex-col h-full p-6" data-aos="fade-right">
                 <div className="mb-6">
                   <div className="font-cabinet-grotesk text-xl font-semibold mb-1">Basse saison</div>
                   <div className="font-cabinet-grotesk inline-flex items-baseline mb-2">
-                    <span className="text-5xl font-bold">{ options ? '650€' : '600' }</span>
+                    <span className="text-5xl font-bold">750€</span>
                   </div>
                   <div className="text-gray-500 mb-6">Pour 21 nuits de cure. <br /> Entre avril et juin, ou entre septembre et octobre.<br /> Profitez de la douceur de vivre, sans la foule.</div>
                   <Link className="btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-xs" href="/contact">Réservez votre logement</Link>
@@ -58,7 +44,7 @@ export default function Pricing() {
                     <svg className="w-3 h-3 fill-current text-emerald-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
-                    <span>Taxe de séjour pour 2 personnes (57€)</span>
+                    <span>Taxe de séjour</span>
                   </li>
                   <li className="flex items-center">
                     <svg className="w-3 h-3 fill-current text-emerald-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -67,26 +53,12 @@ export default function Pricing() {
                     <span>Arrivée la veille ou départ tardif pour le même prix</span>
                   </li>
                 </ul>
-                { !options && (
-                  <>
-                    <div className="font-medium mt-6">En option</div>
-                  </>
-                )}
+                <div className="font-medium mt-6">En option</div>
                 <ul className="mt-3 text-gray-500 space-y-3 grow">
                   <li className="flex items-center">
-                    { options && (
-                    <svg className="w-3 h-3 fill-current text-emerald-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    )}
                     <span>Linge de maison pour le séjour (25€)</span>
                   </li>
                   <li className="flex items-center">
-                    { options && (
-                    <svg className="w-3 h-3 fill-current text-emerald-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    )}
                     <span>Ménage complet après votre départ (60€)</span>
                   </li>
                 </ul>
@@ -99,9 +71,7 @@ export default function Pricing() {
                 <div className="mb-6">
                   <div className="font-cabinet-grotesk text-xl text-gray-100 font-semibold mb-1">Haute saison</div>
                   <div className="font-cabinet-grotesk text-gray-100 inline-flex items-baseline mb-2">
-                    <span className="text-3xl font-medium text-gray-400">$</span>
-                    <span className="text-5xl font-bold">{options ? '793' : '750'}</span>
-                    <span className="font-medium text-gray-400">/mo</span>
+                    <span className="text-5xl font-bold">850€</span>
                   </div>
                   <div className="text-gray-400 mb-6">Pour 21 nuits de cure. <br /> De Juillet à Aout.<br />Le soleil, et l'ambiance estivale !</div>
                   <Link className="btn text-white bg-blue-500 hover:bg-blue-600 w-full shadow-xs" href="/contact">Réservez votre logement.</Link>
@@ -124,7 +94,7 @@ export default function Pricing() {
                     <svg className="w-3 h-3 fill-current text-emerald-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
                       <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
                     </svg>
-                    <span>Taxe de séjour pour 2 personnes (57€)</span>
+                    <span>Taxe de séjour</span>
                   </li>
                   <li className="flex items-center">
                     <svg className="w-3 h-3 fill-current text-emerald-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
@@ -132,27 +102,13 @@ export default function Pricing() {
                     </svg>
                     <span>Arrivée la veille ou départ tardif pour le même prix</span>
                   </li>
-                  </ul>
-                  { !options && (
-                  <>
-                    <div className="font-medium text-gray-100 mt-6">En option</div>
-                  </>
-                )}
+                </ul>
+                <div className="font-medium text-gray-100 mt-6">En option</div>
                 <ul className="mt-3 text-gray-400 space-y-3 grow">
                   <li className="flex items-center">
-                    { options && (
-                    <svg className="w-3 h-3 fill-current text-emerald-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    )}
                     <span>Linge de maison pour le séjour (25€)</span>
                   </li>
                   <li className="flex items-center">
-                    { options && (
-                    <svg className="w-3 h-3 fill-current text-emerald-500 mr-3 shrink-0" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M10.28 2.28L3.989 8.575 1.695 6.28A1 1 0 00.28 7.695l3 3a1 1 0 001.414 0l7-7A1 1 0 0010.28 2.28z" />
-                    </svg>
-                    )}
                     <span>Ménage complet après votre départ (60€)</span>
                   </li>
                 </ul>
