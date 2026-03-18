@@ -8,15 +8,16 @@ import TestimonialsImage02 from '@/public/images/testimonial-02.jpg'
 import TestimonialsImage03 from '@/public/images/testimonial-03.jpg'
 
 // Import Swiper
-import Swiper, { Pagination } from 'swiper'
-import 'swiper/swiper.min.css'
+import Swiper from 'swiper'
+import { Pagination } from 'swiper/modules'
+import 'swiper/css'
 import 'swiper/css/pagination'
-Swiper.use([Pagination])
 
 export default function Testimonials() {
 
   useEffect(() => {
     const testimonial = new Swiper('.testimonial-carousel', {
+      modules: [Pagination],
       slidesPerView: 1,
       watchSlidesProgress: true,
       pagination: {
@@ -24,6 +25,10 @@ export default function Testimonials() {
         clickable: true,
       },
     })
+
+    return () => {
+      testimonial.destroy()
+    }
   }, [])
 
   return (
